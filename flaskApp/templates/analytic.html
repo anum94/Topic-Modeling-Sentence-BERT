@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Topic Modeling </title>
+    <script>
+function enable_algorithm_menu() {
+  document.getElementById("selected_model").disabled=false;
+}
+function disable_algorithm_menu() {
+  document.getElementById("selected_model").disabled=true;
+}
+
+function disable_ngram() {
+
+    if (document.getElementById("selected_model").value == 'LDA Model') {
+          document.getElementById("selected_ngram").disabled=true;
+    }
+    else
+    {
+          document.getElementById("selected_ngram").disabled=false;
+    }
+
+}
+
+</script>
+</head>
+<body>
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="home">
+
+<form class="form-inline" method="POST" action="{{ url_for('result') }}">
+  <br class="form-group">
+
+    <div class="input-group">
+
+        <span class="input-group-addon"> <h3></h3></span>
+
+            <h2>Select a Visualization </h2>
+    <p>
+        <table style="width:100%">
+          <tr>
+            {% for vis in visualizations %}
+            <th>
+
+                <figure >
+
+                    <img src=" {{vis.path}}"  width="220" height="220" >
+
+                <figcaption>{{vis.name}}</figcaption>
+                </figure>
+                {% if vis.i == 2%}
+                <input type="radio" name="selected_vis" id="{{vis.i}}" value="{{vis.i}}" checked="checked" onclick="enable_algorithm_menu()">
+
+                {% elif vis.i == 3%}
+                <input type="radio" name="selected_vis" id="{{vis.i}}" value="{{vis.i}}" onclick="disable_algorithm_menu()" >
+
+                {% else %}
+                <input type="radio" name="selected_vis" id="{{vis.i}}" value="{{vis.i}}" onclick="enable_algorithm_menu()">
+                {% endif %}
+
+
+            </th>
+
+    {% endfor %}
+          </tr>
+        </table>
+
+    </p>
+
+        <h2>Design your Algorithm</h2>
+
+        <table style="width:100%">
+          <th>
+              <th>
+            <h3>Models </h3>
+            <select id="selected_model" name="selected_model" class="selectpicker form-control" onchange="disable_ngram()">
+              {% for model in models %}
+              <option value="{{ model }}">{{ model }}</option>
+              {% endfor %}
+            </select>
+              </th>
+
+
+            <th>
+              <h3>Employee Clusters </h3>
+            <select name="selected_k" class="selectpicker form-control">
+              {% for k in num_clusters %}
+              <option value="{{ k }}">{{ k }}</option>
+              {% endfor %}
+            </select>
+          </th>
+
+        <th>
+            <h3>N grams </h3>
+            <select id = "selected_ngram" name="selected_ngram" class="selectpicker form-control">
+              {% for grams in n_grams %}
+              <option value="{{ grams }}">{{ grams }}</option>
+              {% endfor %}
+            </select>
+
+          </th>
+          </tr>
+        </table>
+
+</div>
+</div>
+      <br>
+<div class="indent">
+    <button type="submit" class="button" style="...">Generate Employee Clusters</button>
+    </div>
+</form>
+
+
+
+{% endblock %}
+</body>
+</html>

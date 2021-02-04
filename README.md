@@ -4,6 +4,13 @@ The purpose of this project is to cluster employees using their objectives.This 
 state-of-the-art deep learning approaches. 
 #### Keywords: LDA, Transformers, K-means, TF-IDF, Word Embedding
 
+to pull Docker image:
+> docker pull anumafzal/topic-model-employee-objective
+
+to run the pulled image:
+> docker run --rm -it -p 5000:5000/tcp anumafzal/topic-model-employee-objective:latest
+
+check ports http://127.0.0.1:5000/ or http://0.0.0.0:5000/
 ### 1) Datasets:
 
 two datasets

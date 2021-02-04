@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topic Modeling Analytic</title>
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+<body>
+{% extends "layout.html" %}
+{% block content %}
+<div class="indent">
+<div class="home">
+
+<h1 style="text-align:center;">
+
+    Job Description Framework
+
+</h1>
+Here you can find some information about how this platform works.
+
+    The framework includes 3 tabs whose purposes are defined below.
+
+    <div > <h2> Home</h2>
+        This tab provides information about navigating through the framework and an overview of available functionalities</div>
+
+    <div>
+    <h2> Job Analytic </h2>
+        <p> This tab provides the option select a visualization, Model, and other parameters such as Number of Clusters and N-gram.</p>
+    <p>
+            <b>1) Job Cluster:</b>
+
+        <dl>
+        <dt>This paramter defines the number of groups in which the jobs should be clustered. This can your assumption and a good value can be found through trial and error.</dt>
+        <dt><br></dt>
+        <dt>For example, if the data contains jobs from 4 departments, it might be a good idea to set cluster value to 4.</dt>
+        <dt><br></dt>
+        <dt>It is recommended to try different options to see which one gives best results.</dt>
+        <dt><br></dt>
+        <dt>To use this tab, the results should be precomputed through <b> Precompute Data </b>tab.  However, For the ease of user, some initial results have been precompute </dt>
+
+
+        </dl>
+         </p>
+
+
+            <p>
+            <b>2) N-grams:</b>
+                <dl>
+             <dt>When picking topic words for each cluster, this parameter lets you decide the n-gram for the words.</dt>
+        <dt><br></dt>
+        <dt>            N-gram = 1 would give you words such as "Talent" , "acquisition"; whereas N-gram = 2 would give you words like "Talent-Acquisition".
+</dt>
+
+        </dl>
+            </p>
+
+            <p>
+                <b>3) Model: </b>
+                <dl>
+        <dt>Offers different choice and also the combinations of models to use for clustering the jobs.</dt>
+    </dl>
+
+            </p>
+            <p>
+                <b>4) Visualizations: </b>
+
+        <dl>
+    <dt>Various types of visualizations are available. Visualization descripted is displayed along with each analytic.</dt>
+    </dl>
+            </p>
+    <p> <b>NOTE: Only the precomputed results can be seen on this tab. </b></p>
+    </div>
+    <div><h2> Precompute Data</h2>
+
+        <dl>
+            <dt>        Since running the algorithm can take some time, there is a separate tab to train all models and precompute
+                the results beforehand for faster loading when doing analytics.
+            </dt>
+            <dt><br></dt>
+            <dt>A new data file (csv or excel) can be uploaded in this tab.</dt>
+            <dt><br></dt>
+            <dt>        The data file should contain the following columns <b>  'Id', 'Title', 'FullDescription' </b>.
+</dt>
+            <dt><br></dt>
+            <dt>        Configurations for which the results should to be precomputed can also be set there.
+</dt>
+        </dl>
+
+
+
+    </div>
+</div>
+</div>
+{% endblock %}
+</body>
+</html>

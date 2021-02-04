@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topic Modeling Demo</title>
+</head>
+<body>
+
+{% extends "layout.html" %}
+{% block content %}
+   <div class="home">
+
+    {% if success %}
+             <h1>Successfully precomputed results on the following data:  {{filename}} </h1>
+    {% else %}
+       <h1>Failed to Precompute results.</h1>
+        <p>
+            ERROR MESSAGE: {{ message }}
+        </p>
+    {% endif %}
+
+
+
+   </div>
+ {% endblock %}
+
+</body>
+</html>

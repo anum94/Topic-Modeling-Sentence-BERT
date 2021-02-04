@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topic Modeling Demo</title>
+</head>
+<body>
+
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="home">
+
+     <h1>Upload a file to precomputed the results.</h1>
+
+    <p>The file must have the following columns 'Id', 'Title', 'FullDescription' </p>
+    <h4>accepted formats: '.csv' | '.xlsx' </h4>
+
+               <form  id="upload-form" action="{{ url_for('precompute') }}" method="POST" enctype="multipart/form-data">
+
+    <input class = "button" id="file-picker" style="width:400px;" type="file" name="file" accept="file/*" multiple/>
+
+    <div id="msg"></div>
+
+
+    <p>
+
+      <h4>     Employee clusters to precompute: </h4>
+
+    {% for k in precompute_k %}
+
+                {{ k }}
+
+                 {% if k == 6%}
+                 <input type="checkbox" name="precompute_k" value="{{ k }}" id="{{ k }}" checked="checked"/>
+                   {% elif k == 8%}
+                 <input type="checkbox" name="precompute_k" value="{{ k }}" id="{{ k }}" checked="checked"/>
+                   {% elif k == 10%}
+                 <input type="checkbox" name="precompute_k" value="{{ k }}" id="{{ k }}" checked="checked"/>
+                   {% elif k == 12%}
+                 <input type="checkbox" name="precompute_k" value="{{ k }}" id="{{ k }}" checked="checked"/>
+                {% else %}
+                 <input type="checkbox" name="precompute_k" value="{{ k }}" id="{{ k }}"/>
+                {% endif %}
+
+    {% endfor %}
+
+
+    </p>
+
+    <p>
+
+         <h4>  n-grams to precompute: </h4>
+
+            {% for n_gram in precompute_ngrams %}
+
+                {{ n_gram }}
+
+                   {% if n_gram == 1%}
+                 <input type="checkbox" name="precompute_ngrams" value="{{ n_gram }}" id="{{ n_gram }}" checked="checked"/>
+                   {% elif n_gram == 2%}
+                 <input type="checkbox" name="precompute_ngrams" value="{{ n_gram }}" id="{{ n_gram }}" checked="checked"/>
+                {% else %}
+                 <input type="checkbox" name="precompute_ngrams" value="{{ n_gram }}" id="{{ n_gram }}"/>
+                {% endif %}
+
+    {% endfor %}
+
+    </p>
+
+
+    <p>
+    <input class="button" style="..." type="submit" value=" Precompute on selected configurations " id="upload-button"/>
+
+           </p>
+                   </form>
+               </div>
+
+ {% endblock %}
+
+</body>
+</html>
