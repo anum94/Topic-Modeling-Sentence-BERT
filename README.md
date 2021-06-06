@@ -1,21 +1,27 @@
-## merck-employee-objectives
+## Topic Modeling using BERT Embedding on Job Description Dataset
 
-The purpose of this project is to cluster employees using their objectives.This project uses classical NLP techniques as well as
+The goal of this project is to cluster jobs based on their description.This project uses classical NLP techniques as well as
 state-of-the-art deep learning approaches. 
 #### Keywords: LDA, Transformers, K-means, TF-IDF, Word Embedding
 
-to pull Docker image:
+#### quick run through docker image
+There is a flask project that encapsulates the whole project is available as a docker image.
+This image shows result on the whole dataset.
+
+To pull Docker image:
 > docker pull anumafzal/topic-model-employee-objective
 
-to run the pulled image:
+To run the pulled image:
 > docker run --rm -it -p 5000:5000/tcp anumafzal/topic-model-employee-objective:latest
 
+
 check ports http://127.0.0.1:5000/ or http://0.0.0.0:5000/
+
+If anyone is interested in the models used, there is a jupyter notebook that can be used for experiemtation.
+
 ### 1) Datasets:
 
-two datasets
-- merck employee dataset: doesn't give good results because data quality is bad
-- job description: used this dataset as a sanity check to ensure that model can give good results
+- job description Dataset. Available on Kaggle
 
 ### 2) Directory Structure:
 
