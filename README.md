@@ -47,7 +47,7 @@ https://www.kaggle.com/airiddha/trainrev1
     > conda env create -f enviroment.yml
     - #### __README.md (file):__
     this file
-    - ####__topic-modeling-playground-colab.ipynb (Notebook):__
+    - #### __topic-modeling-playground-colab.ipynb (Notebook):__
     Advanced level notebook for doing analytic on the dataset
 
 ### 3) Code Entry point:
